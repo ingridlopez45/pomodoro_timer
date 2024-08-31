@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pomodoro_timer/login_page.dart';
-import 'package:pomodoro_timer/pages/create_account.dart';
-import 'package:pomodoro_timer/pomodoro_page.dart';
 import "package:pomodoro_timer/pages/main_page.dart";
+import "package:pomodoro_timer/pages/login_page.dart";  
+import "package:pomodoro_timer/pages/create_account_page.dart";
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +20,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  MainPage(),
+      home: const MainPage(),
+      routes: {
+        "/login": (context) => const LoginPage(),
+        "/createAccount": (context) => CreateAccountPage(),
+        "/main": (context) => const MainPage(),
+        },
     );
   }
 }

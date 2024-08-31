@@ -44,53 +44,70 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children:[Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: Text('UVADORO', style: TextStyle(fontSize: 20, color: Theme.of(context).secondaryHeaderColor),),
-              )],
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 40),
+                  child: Text(
+                    'UVADORO',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Theme.of(context).secondaryHeaderColor),
+                  ),
+                )
+              ],
             ),
             const SizedBox(height: 30),
-            Text("Log in", style: TextStyle(fontSize: 30, color: Theme.of(context).secondaryHeaderColor)),
+            Text("Log in",
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Theme.of(context).secondaryHeaderColor)),
             const SizedBox(height: 15),
-            TextAlignmentLeft(text: "Email address", textColor: Theme.of(context).secondaryHeaderColor,),
+            TextAlignmentLeft(
+              text: "Email address",
+              textColor: Theme.of(context).secondaryHeaderColor,
+            ),
             const SizedBox(height: 9),
             InputText(
                 controller: emailController,
                 hintText: "Your email",
                 obscureText: false),
             const SizedBox(height: 15),
-            TextAlignmentLeft(text: "Password", textColor: Theme.of(context).secondaryHeaderColor),
+            TextAlignmentLeft(
+                text: "Password",
+                textColor: Theme.of(context).secondaryHeaderColor),
             const SizedBox(height: 9),
             InputText(
-              controller: passwordController,
-              hintText: "Your password",
-              obscureText: false),
+                controller: passwordController,
+                hintText: "Your password",
+                obscureText: false),
             const SizedBox(height: 9),
             TextAlignmentLeft(
-             text: "Forgot your password?",
-             textSize: 18,
-             textColor: Theme.of(context).secondaryHeaderColor,
-             ),
+              text: "Forgot your password?",
+              textSize: 18,
+              textColor: Theme.of(context).secondaryHeaderColor,
+            ),
             const SizedBox(
               height: 15,
             ),
-            Button(
-             onTap: () {},
-             ),
+            Button(onTap: () => Navigator.pushNamed(context, '/main')),
             const SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Don't have an account? ",
-                  style: TextStyle(fontSize: 16, color: Theme.of(context).secondaryHeaderColor),
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Theme.of(context).secondaryHeaderColor),
                 ),
                 GestureDetector(
-                    onTap: widget.onTap,
+                    onTap: () => Navigator.pushNamed(context, '/createAccount'),
                     child: Text(
                       "Sign up",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Theme.of(context).secondaryHeaderColor),
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).secondaryHeaderColor),
                     )),
               ],
             )

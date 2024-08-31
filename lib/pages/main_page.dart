@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:pomodoro_timer/pomodoro_page.dart";
+import "package:pomodoro_timer/pages/pomodoro_page.dart";
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -45,7 +45,7 @@ class _MainPageState extends State<MainPage> {
                       Theme.of(context).secondaryHeaderColor),
                   iconSize: MaterialStateProperty.all<double>(30)),
               onPressed: () {
-                Navigator.pushNamed(context, "/profile");
+                Navigator.pushNamed(context, "/login");
               },
             ),
           ]),

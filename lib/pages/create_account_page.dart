@@ -49,22 +49,30 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     textColor: Theme.of(context).secondaryHeaderColor,
                   ),
                   const SizedBox(height: 15),
-                  TextAlignmentLeft(text: "Username", textColor: Theme.of(context).secondaryHeaderColor,),
+                  TextAlignmentLeft(
+                    text: "Username",
+                    textColor: Theme.of(context).secondaryHeaderColor,
+                  ),
                   const SizedBox(height: 9),
                   InputText(
                       controller: usernameController,
                       hintText: "Your username",
-                      obscureText: false
-                      ),
+                      obscureText: false),
                   const SizedBox(height: 15),
-                  TextAlignmentLeft(text: "Email", textColor: Theme.of(context).secondaryHeaderColor,),
+                  TextAlignmentLeft(
+                    text: "Email",
+                    textColor: Theme.of(context).secondaryHeaderColor,
+                  ),
                   const SizedBox(height: 9),
                   InputText(
                       controller: emailConstroller,
                       hintText: "Your name",
                       obscureText: false),
                   const SizedBox(height: 15),
-                  TextAlignmentLeft(text: "Password", textColor: Theme.of(context).secondaryHeaderColor,),
+                  TextAlignmentLeft(
+                    text: "Password",
+                    textColor: Theme.of(context).secondaryHeaderColor,
+                  ),
                   const SizedBox(height: 9),
                   InputText(
                       controller: passwordController,
@@ -79,7 +87,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     child: CheckboxListTile(
                       title: Text(
                         'I accept the terms and privacy policy',
-                        style: TextStyle(color: Theme.of(context).secondaryHeaderColor),
+                        style: TextStyle(
+                            color: Theme.of(context).secondaryHeaderColor),
                       ),
                       value: _isChecked,
                       onChanged: (bool? value) {
@@ -88,25 +97,31 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
-                      activeColor: const Color.fromARGB(255, 58, 170, 129),
+                      // activeColor: const Color.fromARGB(255, 58, 170, 129),
                     ),
                   ),
                   const SizedBox(height: 60),
-                  Button(onTap: () => Navigator.pushNamed(context, '/main')),
+                  Button(
+                      onTap: () => Navigator.pushNamed(context, '/main'),
+                      text: "Create account"),
                   const SizedBox(height: 70),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Already have an account?",
-                        style: TextStyle(fontSize: 16, color: Theme.of(context).secondaryHeaderColor),
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Theme.of(context).secondaryHeaderColor),
                       ),
                       GestureDetector(
-                        // onTap: widget.onTap,
+                        onTap: () => Navigator.pushNamed(context, '/login'),
                         child: Text(
                           "Log in",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold, color: Theme.of(context).secondaryHeaderColor),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).secondaryHeaderColor),
                         ),
                       ),
                     ],
