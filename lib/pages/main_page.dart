@@ -39,7 +39,11 @@ class _MainPageState extends State<MainPage> {
           ),
           actions: [
             IconButton(
-              icon: const Icon(Icons.person),
+              icon: const Icon(Icons.logout),
+              style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).secondaryHeaderColor),
+                  iconSize: MaterialStateProperty.all<double>(30)),
               onPressed: () {
                 Navigator.pushNamed(context, "/profile");
               },

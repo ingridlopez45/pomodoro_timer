@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pomodoro_timer/components/input_text';
+import 'package:pomodoro_timer/components/input_text.dart';
 import 'package:pomodoro_timer/components/text_alignment.dart';
 import 'package:pomodoro_timer/components/button.dart';
 
