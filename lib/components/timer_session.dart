@@ -9,12 +9,14 @@ class TimerSession extends StatefulWidget{
 }
 
 class _TimerSessionState extends State<TimerSession>{
-  static const maxMinutes = 2;
-  int minutes = maxMinutes;
+  static var sessionMinutes=2;
+  static var breakMinutes=3;
+  int minutes = sessionMinutes;
   int seconds = 0;
-
+  late int maxMinutes = minutes;
   Timer? timer;
   var f= NumberFormat('00');
+  bool reset=false;
 
   void resetTimer()=> setState(() => minutes =maxMinutes);
 
@@ -35,15 +37,22 @@ class _TimerSessionState extends State<TimerSession>{
             seconds=59;
             minutes--;
           }else{
-            stopTimer();
-            print("session completed");
+            breakSession();
           }
         }
       });
       });
   }
 
-  void stopTimer({bool reset=true}){
+  void breakSession(){
+    setState(() {
+      reset=!reset;
+    });
+    minutes=reset ? breakMinutes:sessionMinutes;
+    maxMinutes=minutes;
+  }
+
+  void stopTimer(){
     if(reset){
       resetTimer();
       seconds=0;
