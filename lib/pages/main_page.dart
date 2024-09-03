@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:pomodoro_timer/pages/pomodoro_page.dart";
+import "package:pomodoro_timer/pages/timers_page.dart";
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,7 +14,7 @@ class _MainPageState extends State<MainPage> {
   final screenNames = ["Timers", "Settings"];
   final pageController = PageController();
 
-  final screens = [PomodoroPage(), PomodoroPage()];
+  final screens = [TimersPage(), PomodoroPage()];
 
   @override
   Widget build(BuildContext context) {
