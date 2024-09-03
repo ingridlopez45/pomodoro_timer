@@ -5,7 +5,7 @@ class PomodoroPage extends StatelessWidget {
   const PomodoroPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
