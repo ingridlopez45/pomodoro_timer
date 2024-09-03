@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TimerSession extends StatefulWidget{
 
@@ -8,25 +9,44 @@ class TimerSession extends StatefulWidget{
 }
 
 class _TimerSessionState extends State<TimerSession>{
-  static const maxSeconds = 25;
-  int seconds = maxSeconds;
-  Timer? timer;
+  static const maxMinutes = 2;
+  int minutes = maxMinutes;
+  int seconds = 0;
 
-  void resetTimer()=> setState(() => seconds =maxSeconds);
+  Timer? timer;
+  var f= NumberFormat('00');
+
+  void resetTimer()=> setState(() => minutes =maxMinutes);
 
   void  _StartTimer(){
-    timer=Timer.periodic(const Duration(seconds: 60), (_) { 
-      if(seconds >0){
-      setState(() => seconds--);
-      }else{
-        stopTimer();
-      }
-    });
+    if(minutes>0){
+      seconds = minutes *60;
+    }
+    if(seconds>60){
+      minutes=(seconds/60).floor();
+      seconds -= (minutes*60);  
+    }
+    timer=Timer.periodic(const Duration(seconds: 1), (timer) { 
+      setState(() {
+        if(seconds>0){
+          seconds--;
+        }else{
+          if(minutes>0){
+            seconds=59;
+            minutes--;
+          }else{
+            stopTimer();
+            print("session completed");
+          }
+        }
+      });
+      });
   }
 
   void stopTimer({bool reset=true}){
     if(reset){
       resetTimer();
+      seconds=0;
     }
     timer?.cancel();
   }
@@ -57,7 +77,7 @@ Widget buildTimer()=> SizedBox(
     fit: StackFit.expand,
     children: [
       CircularProgressIndicator(
-        value: 1-seconds/maxSeconds,
+        value: 1-((minutes*60)+seconds)/(maxMinutes*60),
         strokeWidth: 15,
         valueColor: const AlwaysStoppedAnimation( Color.fromARGB(255, 136, 72, 180)),
         backgroundColor: const Color.fromARGB(255, 207, 156, 241),
@@ -67,7 +87,7 @@ Widget buildTimer()=> SizedBox(
 );
 
 Widget buildTime(){
-  return Text('00:$seconds',
+  return Text('${f.format(minutes)}:${f.format(seconds)}',
   style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 50),
   );
 }
