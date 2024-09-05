@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color.fromARGB(223, 7, 11, 52),
         secondaryHeaderColor: Colors.white,
+        scaffoldBackgroundColor: Color.fromARGB(239, 2, 28, 30),
+        indicatorColor: const Color.fromARGB(255, 111, 185, 143),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
