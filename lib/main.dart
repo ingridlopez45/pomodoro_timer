@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:pomodoro_timer/pages/main_page.dart";
-import "package:pomodoro_timer/pages/login_page.dart";  
+import "package:pomodoro_timer/pages/login_page.dart";
 import "package:pomodoro_timer/pages/create_account_page.dart";
 
 void main() {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         "/login": (context) => const LoginPage(),
         "/createAccount": (context) => CreateAccountPage(),
         "/main": (context) => const MainPage(),
-        },
+      },
     );
   }
 }

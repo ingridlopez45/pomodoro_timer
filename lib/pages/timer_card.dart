@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pomodoro_timer/pages/pomodoro_page.dart';
-
+import 'package:pomodoro_timer/components/timer.dart';
 
 class TimerCard extends StatelessWidget {
-  final String timerId;
-  final String timerName;
-  final int workSessions;
-  final int focusedWork;
-  final int breakTimer;
+  final Timer timer;
 
   const TimerCard({
     super.key,
-    required this.focusedWork,
-    required this.breakTimer,
-    required this.timerName,
-    required this.timerId,
-    required this.workSessions,
+    required this.timer,
   });
 
   @override
@@ -36,7 +28,7 @@ class TimerCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  timerName,
+                  timer.timerName,
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -44,14 +36,14 @@ class TimerCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Focused Work: $focusedWork',
+                  'Focused Work: ${timer.focusedWork}',
                   style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Break Timer: $breakTimer',
+                  'Break Timer: ${timer.timerBreak}',
                   style: const TextStyle(
                     fontSize: 16,
                   ),
