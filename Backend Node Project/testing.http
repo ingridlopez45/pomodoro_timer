@@ -1,0 +1,13 @@
+POST http://localhost:3000/api/timers
+Content-Type: application/json
+
+{
+    "timerName": "Pomodoro",
+    "workSessions": 5,
+    "focusedWork": 25,
+    "timerBreak": 5
+}
+
+###
+
+GET http://localhost:3000/api/timers
